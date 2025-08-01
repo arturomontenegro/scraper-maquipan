@@ -1,0 +1,11 @@
+{
+  "name": "scraper-ventus",
+  "version": "1.0.0",
+  "main": "scrape_batidoras.js",
+  "scripts": {
+    "start": "node scrape_batidoras.js"
+  },
+  "dependencies": {
+    "playwright": "^1.44.1"
+  }
+}
