@@ -1,8 +1,0 @@
-services:
-  - type: cron
-    name: scraper-batidoras
-    repo: https://github.com/arturomontenegro/scraper-ventus
-    schedule: "@daily"
-    plan: free
-    dockerfilePath: Dockerfile
-    envVars: []
