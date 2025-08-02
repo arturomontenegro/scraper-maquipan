@@ -1,0 +1,28 @@
+name: Scraper Ventus
+
+on:
+  schedule:
+    - cron: '0 10 * * *' # se ejecuta todos los días a las 10:00 UTC (6 AM Chile)
+  workflow_dispatch: # permite ejecutarlo manualmente también
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Instalar Playwright y Chromium
+        run: npx playwright install chromium
+
+      - name: Ejecutar el scraper
+        run: node scrape_batidoras.js
