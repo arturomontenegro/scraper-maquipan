@@ -1,7 +1,7 @@
 {
   "name": "scraper-maquipan",
   "version": "1.0.0",
-"type": "commonjs"
+  "type": "commonjs",
   "main": "scrape_batidoras.js",
   "scripts": {
     "start": "node scrape_batidoras.js"
