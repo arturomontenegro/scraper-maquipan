@@ -1,22 +1,29 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 
+const urls = [
+  'https://www.ventuscorp.cl/batidora-industrial-10-lts-vb-10-ventus/p',
+  'https://www.ventuscorp.cl/batidora-industrial-20-lts-vb-20-ventus/p',
+  'https://www.ventuscorp.cl/batidora-industrial-30-lts-vb-30-ventus/p'
+];
+
 (async () => {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
-  await page.goto('https://www.ventuscorp.cl/linea-panaderia/batidoras');
+  const resultados = [];
 
-  await page.waitForSelector('.product-item');
+  for (const url of urls) {
+    await page.goto(url, { timeout: 60000 });
+    await page.waitForSelector('.vtex-store-components-3-x-productBrand');
 
-  const productos = await page.$$eval('.product-item', items => {
-    return items.map(item => {
-      const nombre = item.querySelector('h2')?.innerText.trim() || '';
-      const precio = item.querySelector('.price')?.innerText.trim() || '';
-      return { nombre, precio };
-    });
-  });
+    const nombre = await page.$eval('.vtex-store-components-3-x-productBrand', el => el.innerText.trim());
+    const precio = await page.$eval('.vtex-product-price-1-x-sellingPriceValue span', el => el.innerText.trim());
 
-  console.log(productos);
-  fs.writeFileSync('batidoras.json', JSON.stringify(productos, null, 2));
+    resultados.push({ url, nombre, precio });
+  }
+
+  console.log(resultados);
+  fs.writeFileSync('batidoras.json', JSON.stringify(resultados, null, 2));
+
   await browser.close();
 })();
