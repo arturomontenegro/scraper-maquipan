@@ -3,9 +3,21 @@ const fs = require('fs');
 const XLSX = require('xlsx');
 
 const urls = [
+  
+  'https://www.maquipan.cl/producto/batidora-planetaria-unique-u-b10'
+  'https://www.maquipan.cl/producto/batidora-planetaria-unique-u-b20'
+  'https://www.maquipan.cl/producto/batidora-planetaria-unique-u-b30'
+
+  
   'https://www.ventuscorp.cl/batidora-industrial-10-lts-vb-10-ventus/p',
   'https://www.ventuscorp.cl/batidora-industrial-20-lts-vb-20-ventus/p',
   'https://www.ventuscorp.cl/batidora-industrial-30-lts-vb-30-ventus/p'
+
+
+
+
+
+  
 ];
 
 (async () => {
