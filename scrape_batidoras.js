@@ -4,9 +4,9 @@ const XLSX = require('xlsx');
 
 const urls = [
   
-  'https://www.maquipan.cl/producto/batidora-planetaria-unique-u-b10'
-  'https://www.maquipan.cl/producto/batidora-planetaria-unique-u-b20'
-  'https://www.maquipan.cl/producto/batidora-planetaria-unique-u-b30'
+  'https://www.maquipan.cl/producto/batidora-planetaria-unique-u-b10',
+  'https://www.maquipan.cl/producto/batidora-planetaria-unique-u-b20',
+  'https://www.maquipan.cl/producto/batidora-planetaria-unique-u-b30',
 
   
   'https://www.ventuscorp.cl/batidora-industrial-10-lts-vb-10-ventus/p',
